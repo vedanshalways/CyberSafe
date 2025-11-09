@@ -479,7 +479,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 32px;
-    margin-bottom: 64px;
+    margin-bottom: 100px;
 }
 
 .workshop-card {
@@ -546,7 +546,9 @@ section {
 
 .download-all-section {
     text-align: center;
-    padding: 48px;
+    padding: 80px 48px;
+    margin-top: 80px;
+    margin-bottom: 80px;
     background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
     border-radius: var(--border-radius-xl);
     box-shadow: var(--shadow-xl);
