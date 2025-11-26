@@ -104,6 +104,21 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(el => observer.observe(el));
 });
 
+// Ensure any old anchors that point to `index.html#about` or `#about`
+// are normalized to the dedicated `about.html` page. This fixes cases
+// where cached HTML or legacy links still point to the anchor and
+// cause navigation back to the homepage instead of the About page.
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (!href) return;
+        // Normalize links like '#about' or 'index.html#about' to 'about.html'
+        if (href === '#about' || href.endsWith('#about') || href.includes('index.html#about')) {
+            a.setAttribute('href', 'about.html');
+        }
+    });
+});
+
 // ===========================
 // Back to Top Button
 // ===========================
