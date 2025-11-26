@@ -296,23 +296,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // Interactive Workshop Cards
 // ===========================
 
-const workshopCards = document.querySelectorAll('.workshop-card');
-
-workshopCards.forEach(card => {
-    const links = card.querySelectorAll('.workshop-link');
-    
-    links.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            card.style.borderColor = 'var(--primary-color)';
-        });
-        
-        link.addEventListener('mouseleave', () => {
-            if (!card.matches(':hover')) {
-                card.style.borderColor = '';
-            }
-        });
-    });
-});
+// Note: workshop card hover styling is handled in CSS (.workshop-card:hover).
+// Removed the previous JS that set inline border colors on link hover because
+// it could leave inline styles behind and cause persistent purple outlines.
 
 // ===========================
 // Progress Bar on Scroll (Optional)
