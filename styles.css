@@ -496,6 +496,19 @@ section {
     box-shadow: var(--shadow-lg);
 }
 
+/* Keyboard focus: show same visual as hover when a card or its children receive focus */
+.workshop-card:focus-within {
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Remove default browser outline on workshop links; focus state handled by focus-within on the card for accessibility */
+.workshop-link:focus,
+.workshop-link:focus-visible {
+    outline: none;
+}
+
 .workshop-icon {
     font-size: 3rem;
     margin-bottom: 20px;

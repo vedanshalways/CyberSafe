@@ -300,6 +300,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // Removed the previous JS that set inline border colors on link hover because
 // it could leave inline styles behind and cause persistent purple outlines.
 
+// Clear any leftover inline border-color on workshop cards (fixes persistent outline)
+document.addEventListener('DOMContentLoaded', () => {
+    const workshopCards = document.querySelectorAll('.workshop-card');
+    workshopCards.forEach(card => {
+        // remove inline border-color property if present
+        if (card.style && card.style.borderColor) {
+            card.style.removeProperty('border-color');
+        }
+    });
+});
+
 // ===========================
 // Progress Bar on Scroll (Optional)
 // ===========================
