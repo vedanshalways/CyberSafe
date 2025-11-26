@@ -44,7 +44,23 @@ window.addEventListener('scroll', () => {
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section[id]');
-    
+
+    // If there are no sections with IDs on the page (for example the Learn page),
+    // avoid the previous behavior that treated an empty `current` as matching
+    // every href (because every string includes the empty string). Instead,
+    // set the active link by matching the current page filename.
+    if (sections.length === 0) {
+        const page = location.pathname.split('/').pop(); // e.g. downloads.html
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href') || '';
+            if (page && href.includes(page)) {
+                link.classList.add('active');
+            }
+        });
+        return;
+    }
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -52,11 +68,15 @@ window.addEventListener('scroll', () => {
             current = section.getAttribute('id');
         }
     });
-    
+
+    // Only add the active class when we have a non-empty `current` section id.
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href')?.includes(current)) {
-            link.classList.add('active');
+        if (current) {
+            const href = link.getAttribute('href') || '';
+            if (href.includes('#' + current) || href.includes(current)) {
+                link.classList.add('active');
+            }
         }
     });
 });
