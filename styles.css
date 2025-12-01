@@ -1329,3 +1329,59 @@ section {
         font-size: 2rem;
     }
 }
+
+/* Additional mobile tweaks to reduce congestion and prevent navbar overlap */
+@media (max-width: 600px) {
+    /* Make sure the fixed navbar doesn't cover page content */
+    body {
+        padding-top: 72px;
+    }
+
+    .navbar .nav-container {
+        padding: 10px 16px;
+    }
+
+    /* Reduce large header padding on small screens */
+    .about-header,
+    .downloads-header {
+        padding: 80px 0 40px;
+    }
+
+    .downloads-content {
+        padding: 40px 0;
+    }
+
+    /* Give the video some breathing room */
+    .learn-video {
+        margin-bottom: 20px;
+    }
+
+    /* Make buttons easier to tap and stack neatly */
+    .btn {
+        padding: 12px 18px;
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        gap: 12px;
+    }
+
+    /* Tighter, cleaner download items */
+    .download-item {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .download-info h3 {
+        font-size: 1rem;
+    }
+
+    .download-info p {
+        font-size: 0.95rem;
+    }
+
+    /* Slightly reduce footer padding so page feels balanced */
+    .footer {
+        padding: 40px 0 20px;
+    }
+}
