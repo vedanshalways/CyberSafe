@@ -1228,6 +1228,28 @@ section {
 }
 
 @media (max-width: 768px) {
+    /* Timeline stacks on tablets */
+    .timeline-item {
+        grid-template-columns: 1fr !important;
+    }
+
+    .timeline-item > div {
+        order: 0 !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .scam-methods-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .evolution-section {
+        padding: 48px 24px !important;
+    }
+
     .nav-toggle {
         display: flex;
     }
@@ -1500,5 +1522,33 @@ section {
     .back-to-top {
         right: 16px;
         bottom: 16px;
+    }
+
+    /* Make timeline and stats stack on mobile */
+    .timeline-item {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    .timeline-item > div {
+        order: 0 !important;
+    }
+
+    .stats-grid,
+    .scam-methods-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .protection-summary {
+        padding: 40px 20px !important;
+    }
+
+    .protection-summary h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .protection-summary p {
+        font-size: 1rem !important;
     }
 }
