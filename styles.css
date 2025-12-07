@@ -1534,6 +1534,12 @@ section {
         order: 0 !important;
     }
 
+    /* Adjust timeline images for mobile */
+    .timeline-item img {
+        min-height: 200px !important;
+        max-height: 250px !important;
+    }
+
     .stats-grid,
     .scam-methods-grid {
         grid-template-columns: 1fr !important;
