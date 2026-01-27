@@ -1254,8 +1254,9 @@ section {
         margin: 0 !important;
     }
     
+    .container.hero-content,
     .hero-content {
-        padding: 0 !important;
+        padding: 0 20px !important;
         margin: 0 !important;
     }
     
