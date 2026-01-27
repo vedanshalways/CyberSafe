@@ -1285,6 +1285,14 @@ section {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
         transition: all 0.2s ease !important;
     }
+
+    /* Ensure buttons, subtitle and title have 5px horizontal breathing room on mobile */
+    .btn,
+    .hero-subtitle,
+    .hero-text h1 {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
     
     .btn-primary {
         background: var(--primary-color) !important;
