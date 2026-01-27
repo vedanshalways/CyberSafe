@@ -1540,6 +1540,12 @@ section {
         padding: 8px 5px !important;
     }
 
+    /* Reinforce padding specifically for the container selector to avoid cascade overrides */
+    .hero .container.hero-content {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
     .hero-image {
         display: none !important; /* Force hide on mobile */
     }
