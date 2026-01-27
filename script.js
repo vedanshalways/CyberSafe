@@ -177,22 +177,21 @@ window.addEventListener('load', () => {
 // ===========================
 
 function removeMobileHeroCards() {
-    // Comprehensive mobile detection
-    const isMobile = window.innerWidth <= 1024 || 
-                    ('ontouchstart' in window) ||
-                    (navigator.maxTouchPoints > 0) ||
-                    (navigator.msMaxTouchPoints > 0);
-    
+    // Desktop detection (width > 1024px)
+    const isDesktop = window.innerWidth > 1024;
     const heroImage = document.querySelector('.hero-image');
-    
-    if (isMobile && heroImage) {
+
+    if (!isDesktop && heroImage) {
         heroImage.remove();
         console.log('Hero cards removed on mobile device');
-    } else if (heroImage) {
-        // Only apply animation delays on desktop
+    } else if (isDesktop && heroImage) {
+        // Ensure hero image is visible
+        heroImage.style.display = '';
+        // Apply animation delays for floating cards
         const floatingCards = document.querySelectorAll('.floating-card');
         floatingCards.forEach((card, index) => {
             card.style.animationDelay = `${index * 0.5}s`;
+            card.style.visibility = 'visible';
         });
     }
 }
