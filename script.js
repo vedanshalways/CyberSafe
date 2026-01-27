@@ -176,22 +176,36 @@ window.addEventListener('load', () => {
 // Floating Cards Animation (Hero Section)
 // ===========================
 
-// Remove floating cards from the DOM on small screens to fully remove
-// them from the HTML for mobile users (improves performance and prevents
-// layout issues). Otherwise, set animation delays for desktop.
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth <= 768) {
-        const heroImage = document.querySelector('.hero-image');
-        if (heroImage) {
-            heroImage.remove();
-        }
-    } else {
+function removeMobileHeroCards() {
+    // Comprehensive mobile detection
+    const isMobile = window.innerWidth <= 1024 || 
+                    ('ontouchstart' in window) ||
+                    (navigator.maxTouchPoints > 0) ||
+                    (navigator.msMaxTouchPoints > 0);
+    
+    const heroImage = document.querySelector('.hero-image');
+    
+    if (isMobile && heroImage) {
+        heroImage.remove();
+        console.log('Hero cards removed on mobile device');
+    } else if (heroImage) {
+        // Only apply animation delays on desktop
         const floatingCards = document.querySelectorAll('.floating-card');
         floatingCards.forEach((card, index) => {
             card.style.animationDelay = `${index * 0.5}s`;
         });
     }
-});
+}
+
+// Run on DOM ready
+document.addEventListener('DOMContentLoaded', removeMobileHeroCards);
+
+// Also run immediately in case DOM is already loaded
+if (document.readyState === 'loading') {
+    // Still loading
+} else {
+    removeMobileHeroCards();
+}
 
 // ===========================
 // Download Tracking (Optional Analytics)

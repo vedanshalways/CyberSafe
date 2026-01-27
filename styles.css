@@ -318,6 +318,20 @@ ul {
     height: 400px;
 }
 
+/* Hide on touch devices */
+@media (pointer: coarse) {
+    .hero-image {
+        display: none !important;
+    }
+}
+
+/* Hide on devices without hover capability (mobile) */
+@media (hover: none) {
+    .hero-image {
+        display: none !important;
+    }
+}
+
 .floating-card {
     position: absolute;
     background: white;
@@ -1214,7 +1228,7 @@ section {
     }
     
     .hero-image {
-        height: 300px;
+        display: none !important; /* Hide on tablets and below */
     }
     
     .hero-text h1 {
@@ -1228,148 +1242,103 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Remove all animations on mobile for better performance */
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        transition: none !important;
-    }
-    
-    /* Remove floating animation from cards and hide them on mobile */
-    .floating-card {
-        animation: none !important;
-        transform: none !important;
-        display: none !important;
-    }
-
-    /* Also hide the hero image container to avoid empty spacing */
+    /* Hide hero floating cards on mobile */
     .hero-image {
         display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
+    }
+    
+    /* Remove large margin from top and reduce hero height */
+    .hero {
+        min-height: auto !important;
+        padding: 80px 0 40px !important;
         margin: 0 !important;
+    }
+    
+    .hero-content {
         padding: 0 !important;
+        margin: 0 !important;
     }
     
-    /* Remove fade-in animations */
-    .fade-in,
-    .fade-in-up {
-        opacity: 1 !important;
-        transform: none !important;
-        animation: none !important;
+    /* Hide scroll indicator on mobile */
+    .scroll-indicator {
+        display: none !important;
     }
     
-    /* Better mobile buttons - very noticeable changes */
-    .btn,
-    .hero-buttons .btn,
-    .hero-buttons a {
-        width: 100% !important;
-        padding: 20px 28px !important;
-        font-size: 1.2rem !important;
-        font-weight: 700 !important;
-        border-radius: 16px !important;
-        min-height: 60px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+    /* Minimalist button design for mobile */
+    .btn {
+        width: auto !important;
+        max-width: 280px !important;
+        padding: 14px 32px !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+        margin: 0 auto !important;
+        display: inline-block !important;
         text-align: center !important;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
-        border: none !important;
-        cursor: pointer !important;
-        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-        margin-bottom: 16px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.2s ease !important;
     }
     
-    /* Primary button styling - very bold mobile design */
-    .btn-primary,
-    .hero-buttons .btn-primary {
-        background: linear-gradient(135deg, #4F46E5, #7C3AED) !important;
+    .btn-primary {
+        background: var(--primary-color) !important;
         color: white !important;
-        box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4) !important;
-        font-weight: 800 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 1px !important;
+        border: none !important;
     }
     
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:active {
-        transform: translateY(2px) !important;
-        box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4) !important;
+    .btn-secondary {
+        background: transparent !important;
+        color: var(--primary-color) !important;
+        border: 2px solid var(--primary-color) !important;
+        box-shadow: none !important;
     }
     
-    /* Secondary button styling - very bold mobile design */
-    .btn-secondary,
-    .hero-buttons .btn-secondary {
-        background: white !important;
-        color: #4F46E5 !important;
-        border: 3px solid #4F46E5 !important;
-        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.15) !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 1px !important;
-    }
-    
-    .btn-secondary:hover,
-    .btn-secondary:focus,
-    .btn-secondary:active {
-        transform: translateY(2px) !important;
-        background: rgba(79, 70, 229, 0.1) !important;
-        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2) !important;
-    }
-    
-    /* Hero button container */
     .hero-buttons {
-        gap: 16px !important;
-        margin-top: 32px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 12px !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        margin-top: 24px !important;
+    }
+    
+    /* Timeline: Image on top, Text on bottom - ALL items */
+    .timeline-item {
         display: flex !important;
         flex-direction: column !important;
+        grid-template-columns: none !important;
+        gap: 0 !important;
+        margin-bottom: 32px !important;
+    }
+
+    /* All timeline children reset */
+    .timeline-item > div {
+        margin: 0 !important;
         width: 100% !important;
     }
-
-    /* Workshop links - mobile optimized */
-    .workshop-link {
-        padding: 14px 20px !important;
-        font-size: 1rem !important;
-        font-weight: 500 !important;
-        border-radius: 10px !important;
-        min-height: 48px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 8px !important;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
-        transition: transform 0.1s ease, box-shadow 0.1s ease !important;
-        background: linear-gradient(135deg, var(--primary-color), var(--primary-light)) !important;
-        color: white !important;
-        text-decoration: none !important;
-        border: none !important;
+    
+    /* Force all TEXT sections to appear SECOND (bottom) */
+    .timeline-item > div[style*="background:white"],
+    .timeline-item > div[style*="background: white"] {
+        order: 2 !important;
+        border-radius: 0 0 16px 16px !important;
+        padding: 24px 20px !important;
     }
     
-    .workshop-link:active {
-        transform: translateY(1px) !important;
-        box-shadow: 0 2px 6px rgba(79, 70, 229, 0.2) !important;
+    /* Force all IMAGE sections to appear FIRST (top) */
+    .timeline-item > div[style*="background:#"],
+    .timeline-item > div[style*="min-height"] {
+        order: 1 !important;
+        border-radius: 16px 16px 0 0 !important;
+        padding: 0 !important;
+        min-height: 220px !important;
     }
     
-    /* Workshop links container */
-    .workshop-links {
-        gap: 12px !important;
-        margin-top: 20px !important;
-    }
-
-    /* Workshop cards mobile optimization */
-    .workshop-card {
-        padding: 24px !important;
-        border-radius: 16px !important;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
-    }
-
-    /* Content cards mobile optimization */
-    .content-card {
-        padding: 24px !important;
-        border-radius: 16px !important;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    .timeline-item img {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 220px !important;
+        max-height: 260px !important;
+        object-fit: cover !important;
     }
 
     .stats-grid {
@@ -1426,15 +1395,7 @@ section {
     
     .hero-subtitle {
         font-size: 1.1rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-        text-align: center;
+        margin-bottom: 20px;
     }
     
     .section-header h2 {
@@ -1573,13 +1534,11 @@ section {
     }
 
     .hero-image {
-        height: 160px;
-        display: block;
-        margin: 0 auto;
+        display: none !important; /* Force hide on mobile */
     }
 
     .floating-card {
-        display: none; /* hide decorative floating cards on small screens */
+        display: none !important; /* hide decorative floating cards on small screens */
     }
 
     .hero-text h1 {
