@@ -1266,14 +1266,14 @@ section {
     
     /* Minimalist button design for mobile */
     .btn {
-        width: auto !important;
-        max-width: 280px !important;
-        padding: 14px 32px !important;
-        font-size: 0.95rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 16px 24px !important;
+        font-size: 1rem !important;
         font-weight: 600 !important;
-        border-radius: 8px !important;
-        margin: 0 auto !important;
-        display: inline-block !important;
+        border-radius: 12px !important;
+        margin: 0 !important;
+        display: block !important;
         text-align: center !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
         transition: all 0.2s ease !important;
@@ -1286,19 +1286,18 @@ section {
     }
     
     .btn-secondary {
-        background: transparent !important;
+        background: white !important;
         color: var(--primary-color) !important;
         border: 2px solid var(--primary-color) !important;
-        box-shadow: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
     }
     
     .hero-buttons {
         display: flex !important;
-        flex-direction: row !important;
-        gap: 12px !important;
-        justify-content: center !important;
-        flex-wrap: wrap !important;
-        margin-top: 24px !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        margin-top: 32px !important;
+        width: 100% !important;
     }
     
     /* Timeline: Image on top, Text on bottom - ALL items */
