@@ -1537,7 +1537,7 @@ section {
     .hero-content {
         grid-template-columns: 1fr;
         gap: 16px;
-        padding: 8px 0;
+        padding: 8px 5px !important;
     }
 
     .hero-image {
