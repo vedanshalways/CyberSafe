@@ -1228,13 +1228,138 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Timeline stacks on tablets */
-    .timeline-item {
-        grid-template-columns: 1fr !important;
+    /* Remove all animations on mobile for better performance */
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    /* Remove floating animation from cards */
+    .floating-card {
+        animation: none !important;
+        transform: none !important;
+    }
+    
+    /* Remove fade-in animations */
+    .fade-in,
+    .fade-in-up {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+    
+    /* Better mobile buttons - very noticeable changes */
+    .btn,
+    .hero-buttons .btn,
+    .hero-buttons a {
+        width: 100% !important;
+        padding: 20px 28px !important;
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+        border-radius: 16px !important;
+        min-height: 60px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+        border: none !important;
+        cursor: pointer !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+        margin-bottom: 16px !important;
+    }
+    
+    /* Primary button styling - very bold mobile design */
+    .btn-primary,
+    .hero-buttons .btn-primary {
+        background: linear-gradient(135deg, #4F46E5, #7C3AED) !important;
+        color: white !important;
+        box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4) !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active {
+        transform: translateY(2px) !important;
+        box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4) !important;
+    }
+    
+    /* Secondary button styling - very bold mobile design */
+    .btn-secondary,
+    .hero-buttons .btn-secondary {
+        background: white !important;
+        color: #4F46E5 !important;
+        border: 3px solid #4F46E5 !important;
+        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.15) !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .btn-secondary:hover,
+    .btn-secondary:focus,
+    .btn-secondary:active {
+        transform: translateY(2px) !important;
+        background: rgba(79, 70, 229, 0.1) !important;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2) !important;
+    }
+    
+    /* Hero button container */
+    .hero-buttons {
+        gap: 16px !important;
+        margin-top: 32px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
     }
 
-    .timeline-item > div {
-        order: 0 !important;
+    /* Workshop links - mobile optimized */
+    .workshop-link {
+        padding: 14px 20px !important;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+        border-radius: 10px !important;
+        min-height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+        transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light)) !important;
+        color: white !important;
+        text-decoration: none !important;
+        border: none !important;
+    }
+    
+    .workshop-link:active {
+        transform: translateY(1px) !important;
+        box-shadow: 0 2px 6px rgba(79, 70, 229, 0.2) !important;
+    }
+    
+    /* Workshop links container */
+    .workshop-links {
+        gap: 12px !important;
+        margin-top: 20px !important;
+    }
+
+    /* Workshop cards mobile optimization */
+    .workshop-card {
+        padding: 24px !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Content cards mobile optimization */
+    .content-card {
+        padding: 24px !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
     }
 
     .stats-grid {
