@@ -1236,10 +1236,20 @@ section {
         transition: none !important;
     }
     
-    /* Remove floating animation from cards */
+    /* Remove floating animation from cards and hide them on mobile */
     .floating-card {
         animation: none !important;
         transform: none !important;
+        display: none !important;
+    }
+
+    /* Also hide the hero image container to avoid empty spacing */
+    .hero-image {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     /* Remove fade-in animations */

@@ -176,10 +176,21 @@ window.addEventListener('load', () => {
 // Floating Cards Animation (Hero Section)
 // ===========================
 
-const floatingCards = document.querySelectorAll('.floating-card');
-
-floatingCards.forEach((card, index) => {
-    card.style.animationDelay = `${index * 0.5}s`;
+// Remove floating cards from the DOM on small screens to fully remove
+// them from the HTML for mobile users (improves performance and prevents
+// layout issues). Otherwise, set animation delays for desktop.
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth <= 768) {
+        const heroImage = document.querySelector('.hero-image');
+        if (heroImage) {
+            heroImage.remove();
+        }
+    } else {
+        const floatingCards = document.querySelectorAll('.floating-card');
+        floatingCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.5}s`;
+        });
+    }
 });
 
 // ===========================
